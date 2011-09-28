@@ -1,0 +1,6 @@
+{
+    "leaverequests": [
+        {"id": 1, "name": "Alan Rubin", "email" : "alan.rubin@keytree.co.uk", "status": "APPROVED"},
+        {"id": 2, "name": "Florian F.", "email" : "florian.f@keytree.co.uk", "status": "REQUESTED"}
+    ]
+}

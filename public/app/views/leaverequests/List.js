@@ -1,4 +1,4 @@
-App.views.UsersList = Ext.extend(Ext.Panel, {
+App.views.LeaveRequestList = Ext.extend(Ext.Panel, {
     initComponent: function(){
         var addButton, titlebar, list;
 
@@ -21,7 +21,7 @@ App.views.UsersList = Ext.extend(Ext.Panel, {
         list = {
             xtype: 'list',
             itemTpl: '{name}',
-            store: App.stores.users,
+            store: App.stores.leaveRequests,
             listeners: {
                 scope: this,
                 itemtap: this.onItemtapAction
@@ -35,23 +35,23 @@ App.views.UsersList = Ext.extend(Ext.Panel, {
             items: [list]
         });
 
-        App.views.UsersList.superclass.initComponent.call(this);
+        App.views.LeaveRequestList.superclass.initComponent.call(this);
     },
 
     onAddAction: function() {
         Ext.dispatch({
-            controller: 'Users',
+            controller: 'LeaveRequests',
             action: 'newForm'
         });
     },
 
     onItemtapAction: function(list, index, item, e) {
         Ext.dispatch({
-            controller: 'Users',
+            controller: 'LeaveRequests',
             action: 'editForm',
             index: index
         });
     }
 });
 
-Ext.reg('App.views.UsersList', App.views.UsersList);
+Ext.reg('App.views.LeaveRequestList', App.views.LeaveRequestList);

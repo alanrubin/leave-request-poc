@@ -4,8 +4,8 @@ App = new Ext.Application({
     launch: function() {
         this.views.viewport = new this.views.Viewport();
 
-        this.views.usersList = this.views.viewport.down('#usersList');
-        this.views.usersForm = this.views.viewport.down('#usersForm');
-		this.views.usersConnection = this.views.viewport.down('#usersConnection');
+        this.views.leaveRequestList = this.views.viewport.down('#leaveRequestList');
+        this.views.leaveRequestForm = this.views.viewport.down('#leaveRequestForm');
+		this.views.connection = this.views.viewport.down('#connection');
     }
 });

@@ -1,4 +1,4 @@
-App.models.User = Ext.regModel('User', {
+App.models.LeaveRequest = Ext.regModel('LeaveRequest', {
     fields: [
         {
             name: 'id',
@@ -29,6 +29,6 @@ App.models.User = Ext.regModel('User', {
 
     proxy: {
         type: 'localstorage',
-        id: 'sencha-users'
+        id: 'sencha-leave-requests'
     }
 });

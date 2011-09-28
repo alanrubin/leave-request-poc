@@ -1,28 +1,28 @@
-Ext.regController('Users', {
-    store: App.stores.users,
+Ext.regController('LeaveRequests', {
+    store: App.stores.leaveRequests,
 
 	connect: function() {
-		// TODO Invoke connection to system via PhoneGap
-		console.log('onConnect!');
+		// TODO Invoke connection to system via PhoneGap - in return callback call the line below ('reveal of view')
+		// TODO Maybe add some wait animated gif
 		
-		// Redirect to users list
-        App.views.viewport.reveal('usersList');
+		// Redirect to leave request list
+        App.views.viewport.reveal('leaveRequestList');
     },
 
     index: function() {
-        App.views.viewport.reveal('usersList');
+        App.views.viewport.reveal('leaveRequestList');
     },
 
     newForm: function() {
-        var model = new App.models.User()
-        App.views.usersForm.load(model);
-        App.views.viewport.reveal('usersForm');
+        var model = new App.models.LeaveRequest()
+        App.views.leaveRequestForm.load(model);
+        App.views.viewport.reveal('leaveRequestForm');
     },
 
     editForm: function(params) {
         var model = this.store.getAt(params.index);
-        App.views.usersForm.load(model);
-        App.views.viewport.reveal('usersForm');
+        App.views.leaveRequestForm.load(model);
+        App.views.viewport.reveal('leaveRequestForm');
     },
 
     save: function(params) {
@@ -38,8 +38,8 @@ Ext.regController('Users', {
     },
 
     update: function(params) {
-        var tmpUser = new App.models.User(params.data),
-            errors = tmpUser.validate()
+        var tmpRequest = new App.models.LeaveRequest(params.data),
+            errors = tmpRequest.validate()
 
         if (errors.isValid()) {
             params.record.set(params.data);

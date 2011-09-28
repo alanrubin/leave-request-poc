@@ -1,4 +1,4 @@
-App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
+App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
     defaultInstructions: 'Please enter the information above.',
 
     initComponent: function(){
@@ -12,14 +12,14 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
         };
 
         titlebar = {
-            id: 'userFormTitlebar',
+            id: 'leaveRequestFormTitlebar',
             xtype: 'toolbar',
             title: 'Create user',
             items: [ cancelButton ]
         };
 
         saveButton = {
-            id: 'userFormSaveButton',
+            id: 'leaveRequestFormSaveButton',
             text: 'save',
             ui: 'confirm',
             handler: this.onSaveAction,
@@ -27,7 +27,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
         };
 
         deleteButton = {
-            id: 'userFormDeleteButton',
+            id: 'leaveRequestFormDeleteButton',
             text: 'delete',
             ui: 'decline',
             handler: this.onDeleteAction,
@@ -42,7 +42,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
 
         fields = {
             xtype: 'fieldset',
-            id: 'userFormFieldset',
+            id: 'leaveRequestFormFieldset',
             title: 'User details',
             instructions: this.defaultInstructions,
             defaults: {
@@ -90,9 +90,9 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
             items: [ fields ],
             listeners: {
                 beforeactivate: function() {
-                    var deleteButton = this.down('#userFormDeleteButton'),
-                        saveButton = this.down('#userFormSaveButton'),
-                        titlebar = this.down('#userFormTitlebar'),
+                    var deleteButton = this.down('#leaveRequestFormDeleteButton'),
+                        saveButton = this.down('#leaveRequestFormSaveButton'),
+                        titlebar = this.down('#leaveRequestFormTitlebar'),
                         model = this.getRecord();
 
                     if (model.phantom) {
@@ -109,12 +109,12 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
             }
         });
 
-        App.views.UsersForm.superclass.initComponent.call(this);
+        App.views.LeaveRequestForm.superclass.initComponent.call(this);
     },
 
     onCancelAction: function() {
         Ext.dispatch({
-            controller: 'Users',
+            controller: 'LeaveRequests',
             action: 'index'
         });
     },
@@ -123,7 +123,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
         var model = this.getRecord();
 
         Ext.dispatch({
-            controller: 'Users',
+            controller: 'LeaveRequests',
             action    : (model.phantom ? 'save' : 'update'),
             data      : this.getValues(),
             record    : model,
@@ -135,7 +135,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
         Ext.Msg.confirm("Delete this user?", "", function(answer) {
             if (answer === "yes") {
                 Ext.dispatch({
-                    controller: 'Users',
+                    controller: 'LeaveRequests',
                     action    : 'remove',
                     record    : this.getRecord()
                 });
@@ -144,7 +144,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
     },
 
     showErrors: function(errors) {
-        var fieldset = this.down('#userFormFieldset');
+        var fieldset = this.down('#leaveRequestFormFieldset');
         this.fields.each(function(field) {
             var fieldErrors = errors.getByField(field.name);
 
@@ -161,7 +161,7 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
     },
 
     resetForm: function() {
-        var fieldset = this.down('#userFormFieldset');
+        var fieldset = this.down('#leaveRequestFormFieldset');
         this.fields.each(function(field) {
             this.resetField(field);
         }, this);
@@ -177,4 +177,4 @@ App.views.UsersForm = Ext.extend(Ext.form.FormPanel, {
     }
 });
 
-Ext.reg('App.views.UsersForm', App.views.UsersForm);
+Ext.reg('App.views.LeaveRequestForm', App.views.LeaveRequestForm);

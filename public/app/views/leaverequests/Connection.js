@@ -1,4 +1,4 @@
-App.views.UsersConnection = Ext.extend(Ext.Panel, {
+App.views.Connection = Ext.extend(Ext.Panel, {
     initComponent: function(){
         var connectButton;
 
@@ -19,15 +19,15 @@ App.views.UsersConnection = Ext.extend(Ext.Panel, {
             items: [connectButton]
         });
 
-        App.views.UsersConnection.superclass.initComponent.call(this);
+        App.views.Connection.superclass.initComponent.call(this);
     },
 
     onConnectAction: function() {
 		Ext.dispatch({
-            controller: 'Users',
+            controller: 'LeaveRequests',
             action: 'connect'
         });
     }
 });
 
-Ext.reg('App.views.UsersConnection', App.views.UsersConnection);
+Ext.reg('App.views.Connection', App.views.Connection);

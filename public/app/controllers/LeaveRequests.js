@@ -2,7 +2,7 @@ Ext.regController('LeaveRequests', {
     store: App.stores.leaveRequests,
 
 	connect: function() {
-		// TODO Invoke connection to system via PhoneGap - in return callback call the line below ('reveal of view')
+		// TODO Invoke connection to system via PhoneGap - in return callback call the line below ('reveal of leave requests list view')
 		// TODO Maybe add some wait animated gif
 		
 		// Redirect to leave request list

@@ -14,7 +14,7 @@ App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
         titlebar = {
             id: 'leaveRequestFormTitlebar',
             xtype: 'toolbar',
-            title: 'Create user',
+            title: 'Create Leave Request',
             items: [ cancelButton ]
         };
 
@@ -43,7 +43,7 @@ App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
         fields = {
             xtype: 'fieldset',
             id: 'leaveRequestFormFieldset',
-            title: 'User details',
+            title: 'Leave Request details',
             instructions: this.defaultInstructions,
             defaults: {
                 xtype: 'textfield',
@@ -72,15 +72,32 @@ App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
                     xtype: 'App.views.ErrorField',
                     fieldname: 'email',
                 },
-                {
-                    name: 'phone',
-                    label: 'phone',
-                    xtype: 'numberfield',
+				{
+                    name: 'status',
+                    label: 'status'
                 },
-                {
+				{
                     xtype: 'App.views.ErrorField',
-                    fieldname: 'phone',
+                    fieldname: 'status',
                 },
+                {
+                    name: 'start-date',
+                    label: 'start date',
+                    xtype: 'datepickerfield'
+                },
+				{
+                    xtype: 'App.views.ErrorField',
+                    fieldname: 'start-date',
+                },
+				{
+                    name: 'end-date',
+                    label: 'end date',
+                    xtype:'datepickerfield'
+                },
+				{
+                    xtype: 'App.views.ErrorField',
+                    fieldname: 'end-date',
+                }
             ]
         };
 
@@ -96,11 +113,11 @@ App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
                         model = this.getRecord();
 
                     if (model.phantom) {
-                        titlebar.setTitle('Create user');
+                        titlebar.setTitle('Create Leave Request');
                         saveButton.setText('create');
                         deleteButton.hide();
                     } else {
-                        titlebar.setTitle('Update user');
+                        titlebar.setTitle('Update Leave Request');
                         saveButton.setText('update');
                         deleteButton.show();
                     }
@@ -132,7 +149,7 @@ App.views.LeaveRequestForm = Ext.extend(Ext.form.FormPanel, {
     },
 
     onDeleteAction: function() {
-        Ext.Msg.confirm("Delete this user?", "", function(answer) {
+        Ext.Msg.confirm("Delete this leave request?", "", function(answer) {
             if (answer === "yes") {
                 Ext.dispatch({
                     controller: 'LeaveRequests',

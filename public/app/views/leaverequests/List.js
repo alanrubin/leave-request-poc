@@ -14,13 +14,13 @@ App.views.LeaveRequestList = Ext.extend(Ext.Panel, {
         titlebar = {
             dock: 'top',
             xtype: 'toolbar',
-            title: 'Users',
+            title: 'Leave Requests',
             items: [ { xtype: 'spacer' }, addButton ]
         };
 
         list = {
             xtype: 'list',
-            itemTpl: '{name}',
+            itemTpl: 'By {name} from {start-date}',
             store: App.stores.leaveRequests,
             listeners: {
                 scope: this,

@@ -6,13 +6,21 @@ App.models.LeaveRequest = Ext.regModel('LeaveRequest', {
         }, {
             name: 'name',
             type: 'string'
-        }, {
+        }	, {
             name: 'email',
             type: 'string'
+        }	, {
+		            name: 'status',
+		            type: 'string'
+		        }, {
+            name: 'start-date',
+            type: 'date'//,
+			//convert: toDateFromJSON - can convert dates - see http://zianet.dk/blog/2011/06/03/dates-with-a-sencha-touch-data-model-and-a-wcf-json-service/
         }, {
-            name: 'phone',
-            type: 'string'
-        }
+	            name: 'end-date',
+	            type: 'date'//,
+				//convert: toDateFromJSON - can convert dates - see http://zianet.dk/blog/2011/06/03/dates-with-a-sencha-touch-data-model-and-a-wcf-json-service/
+	        }
     ],
 
     validations: [

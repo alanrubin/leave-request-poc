@@ -4760,7 +4760,7 @@ Ext.supports = {
     
     
     
-    Touch: ('ontouchstart' in window) && (!Ext.is.Desktop),
+    Touch: ('ontouchstart' in window) && (!Ext.is.Desktop && !Ext.is.Blackberry),
 
     tests: [
         
@@ -13961,7 +13961,7 @@ Ext.Viewport = new (Ext.extend(Ext.util.Observable, {
             window.addEventListener('resize', Ext.createDelegate(me.onResize, me), false);
         }
 
-        if (!Ext.desktop) {
+       if (!Ext.desktop && !Ext.Blackberry) {
             document.addEventListener('touchstart', Ext.createDelegate(me.onTouchStartCapturing, me), true);
         }
     },
@@ -18214,7 +18214,7 @@ Ext.gesture.Manager = new Ext.AbstractManager({
             return;
         }
 
-        if (Ext.is.Desktop) {
+        if (Ext.is.Desktop || Ext.is.Blackberry) {
             e.target = this.startEvent.target;
         }
 

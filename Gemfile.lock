@@ -1,0 +1,47 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.1.0)
+      multi_json (~> 1.0)
+    addressable (2.2.6)
+    domainatrix (0.0.10)
+      addressable
+    highline (1.6.2)
+    httparty (0.8.1)
+      multi_json
+      multi_xml
+    i18n (0.6.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
+    multi_json (1.0.3)
+    multi_xml (0.4.1)
+    net-ssh (2.1.0)
+    rack (1.3.4)
+    rack-rewrite (1.2.1)
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    serve (1.5.1)
+      activesupport (~> 3.0)
+      i18n
+      rack (~> 1.2)
+      rack-test (~> 0.5)
+      tilt (~> 1.3)
+      tzinfo
+    tilt (1.3.3)
+    tzinfo (0.3.30)
+    webbynode (1.0.4.3)
+      bundler (>= 0.9.26)
+      domainatrix (>= 0.0.7)
+      highline (>= 1.5.2)
+      httparty (>= 0.4.5)
+      launchy (>= 0.3.7)
+      net-ssh (= 2.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rack
+  rack-rewrite
+  serve
+  webbynode
